@@ -6,7 +6,6 @@ class Knight:
         self.protection = 0
         self._armour = config.get("armour", [])
         self._weapon = config["weapon"]
-        # Явно перевіряємо на None
         potion = config.get("potion")
         self._potion = potion if potion is not None else None
 
