@@ -3,24 +3,20 @@ from app.config import KNIGHTS
 
 
 def battle(knights_config: dict) -> dict:
-    # Створюємо об'єкти
     lancelot = Knight(knights_config["lancelot"])
     arthur = Knight(knights_config["arthur"])
     mordred = Knight(knights_config["mordred"])
     red_knight = Knight(knights_config["red_knight"])
 
-    # Готуємо всіх одним циклом
     for knight in [lancelot, arthur, mordred, red_knight]:
         knight.prepare()
 
-    # Бої
     lancelot.take_damage(mordred.power)
     mordred.take_damage(lancelot.power)
 
     arthur.take_damage(red_knight.power)
     red_knight.take_damage(arthur.power)
 
-    # Результат
     return {
         lancelot.name: lancelot.hp,
         arthur.name: arthur.hp,
